@@ -112,6 +112,11 @@ body {
     }
 }
 //----------------------------MAIN--------------------
+.main {
+    @include responsive(x-large) {
+        margin-bottom: rem(144px);
+    }
+}
 .main-content {
     margin-bottom: 5.5rem;
     position: relative;

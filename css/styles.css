@@ -499,6 +499,12 @@ body {
   color: #fff;
 }
 
+@media screen and (min-width: 75em) {
+  .main {
+    margin-bottom: 9rem;
+  }
+}
+
 .main-content {
   margin-bottom: 5.5rem;
   position: relative;
