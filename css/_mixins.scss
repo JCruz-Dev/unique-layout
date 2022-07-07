@@ -1,0 +1,15 @@
+$queries: (
+    'xsmall': 20em,
+    'small': 23.4375em,
+    'medium': 48em,
+    'large': 64em,
+    'x-large': 75em,
+    'xx-large': 90em,
+    'extra-large': 120em,
+);
+
+@mixin responsive($query) {
+    @media screen and (min-width: map-get($queries, $query)) {
+        @content;
+    }
+}

@@ -1,0 +1,102 @@
+@import './mixins';
+@import './normalize';
+* {
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+}
+:root {
+    --accent-color: #f5f0e4;
+    --accent-color-hover: #cda342;
+    --main-color: black;
+    --primary-font: 'EB Garamond', serif;
+    --secondary-font: 'Poppins', sans-serif;
+    --header-height: 115px;
+}
+
+.container {
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+.header-wrapper {
+    padding: 2.5rem 0 0;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    &__title {
+        font-weight: bold;
+        font-family: var(--primary-font);
+        font-size: 1.5rem;
+    }
+    &__navigation {
+        display: none;
+        gap: 2.75rem;
+        align-items: center;
+        font-family: var(--secondary-font);
+
+        @include responsive(medium) {
+            display: flex;
+        }
+        &__item {
+            text-decoration: none;
+            color: var(--main-color);
+            font-weight: normal;
+            &:hover {
+                color: var(--accent-color-hover);
+            }
+            &.active {
+                font-weight: bold;
+            }
+        }
+        &__logo {
+            display: block;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            @include responsive(medium) {
+                display: none;
+            }
+        }
+    }
+}
+.side-menu {
+    position: fixed;
+    right: 0;
+    top: var(--header-height);
+    width: 40%;
+    height: 100vh;
+    @include responsive(medium) {
+        display: none;
+    }
+    &-navigation {
+        display: flex;
+        padding: 2.5rem;
+        gap: 2.5rem;
+        flex-direction: column;
+        background-color: var(--main-color);
+        transform: translateX(150%);
+        transition: transform 0.2s ease-in-out;
+        height: 100%;
+        &.show {
+            transform: translateX(0%);
+        }
+        &__item {
+            font-family: var(--secondary-font);
+            text-decoration: none;
+            color: white;
+            &.active {
+                font-weight: bold;
+            }
+            &:visited,
+            &:active {
+                color: #fff;
+            }
+        }
+    }
+}
